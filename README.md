@@ -7,8 +7,7 @@ This is a starter project for connecting Node.js applications with MongoDB. It p
 1.  [MongoDB](https://www.mongodb.com/) is a free and open
 -source cross-platform document database that stores JSON-like documents with schema.
 
-2.
-This starter kit provides the basic structure for building an application using:
+2.This starter kit provides the basic structure for building an application using:
     -   ExpressJS as
     web framework; 
     -   Mongoose ODM (Object Data Modeling) library to work with
