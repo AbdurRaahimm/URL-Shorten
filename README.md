@@ -23,11 +23,11 @@ This is a simple URL shortner API. It is built with Node.js, Express.js, and Mon
 ## Installation to Local
 1. Clone this repository
 ```bash
-git clone https://github.com/AbdurRaahimm/node-mongodb-connect-starter.git
+git clone https://github.com/AbdurRaahimm/URL-Shorten.git
 ```
 2. Navigate to the project directory
 ```bash
-cd node-mongodb-connect-starter
+cd URL-Shorten
 ```
 3. Run The Essential Dependency
 ```bash
