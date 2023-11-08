@@ -4,15 +4,23 @@ const connectDB = require('./config/db');
 require('dotenv').config();
 
 
+// Body Parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+
+// Routes
+app.use('/', require('./routes/redirect'));
+app.use('/api', require('./routes/urls'));
+
 
 app.get("/", (req, res)=>{
-    return res.send("MongoDB Connected Template");
-    
+  res.json({message:`API running`});
 })
 
 
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 3001;
 app.listen(port, async() => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running on http://localhost:${port}`);
   await connectDB();
 });
