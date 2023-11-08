@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Url = require('../models/Url');
 
-// @route     GET /:code
+// @route     GET /:shortid
 // @desc      Redirect to long/original URL
 
-router.get('/:shortid', async (req, res) => {
+router.get('/:shortId', async (req, res) => {
     try {
-        const url = await Url.findOne({ shortid: req.params.code })
+        const url = await Url.findOne({ shortId: req.params.shortId })
         if (url) {
             url.clicks++;
             url.save();

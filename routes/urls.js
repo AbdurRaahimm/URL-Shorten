@@ -15,7 +15,7 @@ router.post('/shorten', async (req, res) => {
         return res.status(401).json('Invalid base url')
     }
     // Create url code
-    const shortid = generateId(6);
+    const shortId = generateId(6);
     // Check long url
     if (longUrl) {
         try {
@@ -23,11 +23,11 @@ router.post('/shorten', async (req, res) => {
             if (url) {
                 res.json(url)
             } else {
-                const shortUrl = baseUrl + '/' + shortid;
+                const shortUrl = baseUrl + '/' + shortId;
                 url = new Url({
                     longUrl,
                     shortUrl,
-                    shortid,
+                    shortId,
                     clicks: 0
                 })
                 await url.save()
