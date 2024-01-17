@@ -2,14 +2,16 @@ const express = require('express');
 const router = express.Router();
 const Url = require('../models/Url');
 const generateId = require('../config/shortid');
-require("dotenv").config();
 
 // @route     POST /shorten
 // @desc      Create shorten URL
 
 router.post('/shorten', async (req, res) => {
     const {longUrl}  = req.body;
-    const baseUrl = process.env.BASE_URL;
+    // take current url from req 
+    const baseUrl = req.protocol + '://' + req.get('host');
+    // console.log(baseUrl);
+    // const baseUrl = process.env.BASE_URL;
     // Check base url
     if (!baseUrl) {
         return res.status(401).json('Invalid base url')
@@ -24,7 +26,7 @@ router.post('/shorten', async (req, res) => {
                 res.json(url)
             } else {
                 const shortUrl = baseUrl + '/' + shortId;
-                url = new Url({
+                const url = new Url({
                     longUrl,
                     shortUrl,
                     shortId,
